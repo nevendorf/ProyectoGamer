@@ -4,7 +4,7 @@ import time
 from data import *
 
 def clear_screen():
-    os.system("clear")
+    os.system("cls")
 
 def wait_user():
     input("\nPresioná ENTER para continuar...")
@@ -31,7 +31,7 @@ def backpack():
     print(f"\nMochila de {player.name}:\n")
 
     for item, quantity in player.item.items():
-        if quantity > 0: print(f"> {quantity} x", item_translate[item])
+        if quantity > 0: print(f"> {item_translate[item]}: {quantity}")
 
     wait_user()
 
