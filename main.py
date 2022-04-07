@@ -10,6 +10,8 @@ if __name__ == "__main__":
 
     player.name = username
 
+    get_data()
+
     while True:
         
         call_to_action()
