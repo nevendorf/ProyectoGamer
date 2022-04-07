@@ -19,10 +19,7 @@ def return_value(item_name):
     current_value = progress_file.read()
     progress_file.close()
 
-    if current_value != "":
-        return int(current_value)
-    else:
-        return 0
+    return int(current_value)
 
 def get_data():
 
