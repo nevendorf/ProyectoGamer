@@ -99,10 +99,10 @@ def mine():
 
         if remaining > 59:
             remaining = remaining // 60
-            print(f"\n¡No podés hacer esto ahora! Restan {remaining} minutos")
+            print(f"\n¡No podés hacer esto ahora! Faltan {remaining} minutos")
 
         else:
-            print(f"\n¡No podés hacer esto ahora! Restan {remaining} segundos")
+            print(f"\n¡No podés hacer esto ahora! Faltan {remaining} segundos")
 
     wait_user()
 
