@@ -2,12 +2,14 @@ class Player:
 
     command = None
 
-    money = 0
-    stone = 0
-    iron = 0
-    salmon = 0
-    shrimp = 0
-    shrimp_shiny = 0
+    item = {
+        "money": 0,
+        "stone": 0,
+        "iron": 0,
+        "salmon": 0,
+        "shrimp": 0,
+        "shrimp_shiny": 0
+    }
     
     def __init__(self, name):
         self.name = name
@@ -33,4 +35,13 @@ action_cooldown = {
     "mine": 300,
     "fish": 240,
     "crime": 120
+}
+
+item_translate = {
+    "money": "Dinero",
+    "stone": "Piedra",
+    "iron": "Hierro",
+    "salmon": "Salmón",
+    "shrimp": "Camarón",
+    "shrimp_shiny": "Camarón Shiny"
 }

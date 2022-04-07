@@ -39,5 +39,6 @@ if __name__ == "__main__":
 
         else:
 
-            print(player.command)
+            clear_screen()
             print("¡Comando inválido!")
+            wait_user()
