@@ -1,4 +1,4 @@
-import time
+from global_import import *
 from data import *
 from actions import *
 

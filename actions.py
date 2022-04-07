@@ -1,10 +1,8 @@
-import os
-import random
-import time
+from global_import import *
 from data import *
 
 def clear_screen():
-    os.system("cls")
+    os.system("clear")
 
 def wait_user():
     input("\nPresioná ENTER para continuar...")
