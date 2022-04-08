@@ -22,7 +22,7 @@ player = Player(None)
 chance_values = {
     "shrimp": 40,
     "shrimp_shiny": 1,
-    "iron": 1
+    "iron_ore": 15
 }
 
 last_use = {
@@ -40,7 +40,7 @@ action_cooldown = {
 item_translate = {
     "money": "Dinero",
     "stone": "Piedra",
-    "iron": "Hierro",
+    "iron_ore": "Hierro",
     "salmon": "Salmón",
     "shrimp": "Camarón",
     "shrimp_shiny": "Camarón Shiny"

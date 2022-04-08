@@ -9,15 +9,19 @@ def wait_user():
 
 def save_changes(item_name, new_value):
 
-    progress_file = open(f"items\{item_name}", "w")
-    progress_file.write(str(new_value))
-    progress_file.close()
+    with open('player_data.json', 'r') as data_file:
+        player_data = json.load(data_file)
+        player_data["items"][item_name] = new_value
+
+    with open('player_data.json', 'w') as data_file:
+        json.dump(player_data, data_file, indent=4)
 
 def return_value(item_name):
 
-    progress_file = open(f"items\{item_name}", "r+")
-    current_value = progress_file.read()
-    progress_file.close()
+    with open('player_data.json', 'r') as data_file:
+        player_data = json.load(data_file)
+
+    current_value = player_data["items"][item_name]
 
     return int(current_value)
 
@@ -179,8 +183,8 @@ def crime():
         else:
             print("\nParece que no hubo suerte")
 
-        if player.money < 0:
-            player.money = 0
+        if player.item["money"] < 0:
+            player.item["money"] = 0
 
         save_changes("money", player.item["money"])
 
