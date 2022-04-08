@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
             mine()
 
-        elif player.command == "pesca":
+        elif player.command == "pescar":
 
             fish()
 

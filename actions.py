@@ -43,7 +43,7 @@ def call_to_action():
     print(" Minar")
     print(" Crimen")
     print(" Mochila")
-    print(" Pesca")
+    print(" Pescar")
     print(" Salir")
 
     player.command = input("\n> ")
