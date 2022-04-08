@@ -1,6 +1,6 @@
 from global_import import *
 
-class Player(object):
+class Player():
 
     def __init__(self):
 
@@ -28,7 +28,7 @@ class Player(object):
             player_stats = json.load(data_file)
 
         for stat, value in player_stats["items"].items():
-            player_stats["items"][stat] = value
+            self.item[stat] = player_stats["items"][stat]
 
 player = Player()
 

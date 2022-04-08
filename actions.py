@@ -55,8 +55,6 @@ def reset_stats():
 
 def start_game():
 
-    player = Player()
-
     clear_screen()
 
     username = input("Inserte su nombre: ")
