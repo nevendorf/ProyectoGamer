@@ -2,7 +2,7 @@ from global_import import *
 from data import *
 
 def clear_screen():
-    os.system("cls")
+    os.system("clear")
 
 def wait_user():
     input("\nPresioná ENTER para continuar...")
@@ -24,17 +24,6 @@ def return_value(item_name):
     current_value = player_data["items"][item_name]
 
     return int(current_value)
-
-def get_data():
-
-    player.item["money"] = return_value("money")
-    player.item["stone"] = return_value("stone")
-    player.item["iron_ore"] = return_value("iron_ore")
-    player.item["salmon"] = return_value("salmon")
-    player.item["shrimp"] = return_value("shrimp")
-    player.item["shrimp_shiny"] = return_value("shrimp_shiny")
-    player.item["coal_ore"] = return_value("coal_ore")
-    player.item["copper_ore"] = return_value("copper_ore")
 
 def reset_stats():
 
@@ -64,6 +53,17 @@ def reset_stats():
         print("\n¡Tu progreso fue eliminado!")
         input()
 
+def start_game():
+
+    player = Player()
+
+    clear_screen()
+
+    username = input("Inserte su nombre: ")
+    player.name = username
+
+    player.load_data()
+
 def call_to_action():
 
     clear_screen()
@@ -82,7 +82,7 @@ def call_to_action():
 
 def backpack():
 
-    get_data()
+    player.load_data()
 
     clear_screen()
 
