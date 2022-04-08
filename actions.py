@@ -29,22 +29,22 @@ def get_data():
 
     player.item["money"] = return_value("money")
     player.item["stone"] = return_value("stone")
-    player.item["iron"] = return_value("iron")
+    player.item["iron_ore"] = return_value("iron_ore")
     player.item["salmon"] = return_value("salmon")
     player.item["shrimp"] = return_value("shrimp")
     player.item["shrimp_shiny"] = return_value("shrimp_shiny")
     player.item["coal_ore"] = return_value("coal_ore")
     player.item["copper_ore"] = return_value("copper_ore")
 
-def reset():
+def reset_stats():
 
     with open('player_data.json', 'r') as data_file:
-        player_data = json.load(data_file)
-        for item_name in player_data["items"]:
-            player_data["items"][item_name] = 0
+        player_stat = json.load(data_file)
+        for stat in player_stat["items"]:
+            stat = 0
 
     with open('player_data.json', 'w') as data_file:
-        json.dump(player_data, data_file, indent=4)    
+        json.dump(player_stat, data_file, indent=4)
 
 def call_to_action():
 

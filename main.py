@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
         elif player.command == "reset":
 
-            reset()
+            reset_stats()
 
         elif player.command == "salir":
 
