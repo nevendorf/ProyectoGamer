@@ -14,7 +14,7 @@ def save_changes(item_name, new_value):
     progress_file.close()
 
 def return_value(item_name):
-    
+
     progress_file = open(f"items\{item_name}", "r+")
     current_value = progress_file.read()
     progress_file.close()
@@ -80,21 +80,21 @@ def mine():
 
         print(f"\n{player.name} consiguió {quantity} piedras")
 
-        if(random.randint(0, 100) <= chance_values["iron"]):
+        if(random.randint(0, 100) <= chance_values["iron_ore"]):
 
-            player.item["iron"] = return_value("iron")
+            player.item["iron_ore"] = return_value("iron_ore")
 
             quantity = random.randint(1, 3)
-            player.item["iron"] += quantity
+            player.item["iron_ore"] += quantity
 
-            save_changes("iron", player.item["iron"])
+            save_changes("iron_ore", player.item["iron_ore"])
 
             print(f"\n{player.name} consiguió {quantity} menas de hierro")
 
         last_use["mine"] = time.time()
 
     else:
-        
+
         remaining = int(action_cooldown["mine"] - (time.time() - last_use["mine"]))
 
         if remaining > 59:
@@ -140,14 +140,14 @@ def fish():
 
             player.item["shrimp_shiny"] += 1
 
-            save_changes("shrimp_shiny", player.item["shrimp_shiny"])            
+            save_changes("shrimp_shiny", player.item["shrimp_shiny"])
 
             print(f"\n{player.name} consiguió un camarón shiny")
 
         last_use["fish"] = time.time()
 
     else:
-        
+
         remaining = int(action_cooldown["fish"] - (time.time() - last_use["fish"]))
 
         if remaining > 59:

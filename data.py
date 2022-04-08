@@ -5,12 +5,12 @@ class Player:
     item = {
         "money": 0,
         "stone": 0,
-        "iron": 0,
+        "iron_ore": 0,
         "salmon": 0,
         "shrimp": 0,
         "shrimp_shiny": 0
     }
-    
+
     def __init__(self, name):
         self.name = name
 
