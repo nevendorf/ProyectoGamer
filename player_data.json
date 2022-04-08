@@ -1,12 +1,12 @@
 {
     "items": {
-        "money": 336,
+        "money": 0,
         "iron": 0,
         "salmon": 0,      
         "coal_ore": 0,
         "copper_ore": 0,
         "shrimp": 0,
         "shrimp_shiny": 0,
-        "stone": 17
+        "stone": 0
     }
 }
