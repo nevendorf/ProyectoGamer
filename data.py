@@ -6,6 +6,8 @@ class Player:
         "money": 0,
         "stone": 0,
         "iron_ore": 0,
+        "coal_ore": 0,
+        "copper_ore": 0,
         "salmon": 0,
         "shrimp": 0,
         "shrimp_shiny": 0
@@ -22,6 +24,8 @@ player = Player(None)
 chance_values = {
     "shrimp": 40,
     "shrimp_shiny": 1,
+    "coal_ore": 50,
+    "copper_ore": 25,
     "iron_ore": 15
 }
 
@@ -40,7 +44,9 @@ action_cooldown = {
 item_translate = {
     "money": "Dinero",
     "stone": "Piedra",
-    "iron_ore": "Hierro",
+    "iron_ore": "Mena de Hierro",
+    "copper_ore": "Mena de Cobre",
+    "coal_ore": "Mena de Carbón",
     "salmon": "Salmón",
     "shrimp": "Camarón",
     "shrimp_shiny": "Camarón Shiny"

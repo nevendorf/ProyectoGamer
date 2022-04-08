@@ -24,13 +24,17 @@ if __name__ == "__main__":
 
             mine()
 
-        elif player.command == "pesca":
+        elif player.command == "pescar":
 
             fish()
 
         elif player.command == "crimen":
 
             crime()
+
+        elif player.command == "reset":
+
+            reset_stats()
 
         elif player.command == "salir":
 
