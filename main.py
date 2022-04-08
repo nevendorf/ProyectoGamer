@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
         call_to_action()
 
-        if player.command == "mochilas":
+        if player.command == "mochila":
 
             backpack()
 
