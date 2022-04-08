@@ -2,7 +2,7 @@ from global_import import *
 from data import *
 
 def clear_screen():
-    os.system("cls")
+    os.system("clear")
 
 def wait_user():
     input("\nPresioná ENTER para continuar...")
@@ -38,13 +38,31 @@ def get_data():
 
 def reset_stats():
 
-    with open('player_data.json', 'r') as data_file:
-        player_stat = json.load(data_file)
-        for stat in player_stat["items"]:
-            stat = 0
+    user_input = None
 
-    with open('player_data.json', 'w') as data_file:
-        json.dump(player_stat, data_file, indent=4)
+    while user_input == None or (user_input != "aceptar" and user_input != "cancelar"):
+
+        clear_screen()
+
+        print("\nTodo tu progreso está a punto de ser eliminado.")
+        print("\n- Aceptar\n- Cancelar")
+        user_input = input("\n> ").lower()
+
+    if user_input == "aceptar":
+
+        with open('player_data.json', 'r') as data_file:
+            player_stats = json.load(data_file)
+
+        for stat in player_stats["items"]:
+            player_stats["items"][stat] = 0
+
+        with open('player_data.json', 'w') as data_file:
+            json.dump(player_stats, data_file, indent=4)
+
+        clear_screen()
+
+        print("\n¡Tu progreso fue eliminado!")
+        input()
 
 def call_to_action():
 
@@ -63,6 +81,8 @@ def call_to_action():
     player.command = player.command.lower()
 
 def backpack():
+
+    get_data()
 
     clear_screen()
 
@@ -97,11 +117,11 @@ def mine():
 
         print(f"\n{player.name} consiguió {quantity} piedras")
 
-        quantity = random.randint(1,3)
+        random_ore = random.randint(1,3)
 
-        if (quantity == 1):
+        if (random_ore == 1):
 
-            if(random.randint(0, 100) <= chance_values["iron_ore"]):
+            if random.randint(0, 100) <= chance_values["iron_ore"]:
 
                 player.item["iron_ore"] = return_value("iron_ore")
 
@@ -112,9 +132,9 @@ def mine():
 
                 print(f"\n{player.name} consiguió {quantity} menas de hierro")
 
-        elif(quantity == 2):
+        elif random_ore == 2:
 
-            if(random.randint(0, 100) <= chance_values["coal_ore"]):
+            if random.randint(0, 100) <= chance_values["coal_ore"]:
 
                 player.item["coal_ore"] = return_value("coal_ore")
 
@@ -125,9 +145,9 @@ def mine():
 
                 print(f"\n{player.name} consiguió {quantity} menas de carbon")
 
-        elif(quantity == 3):
+        elif random_ore == 3:
 
-            if(random.randint(0, 100) <= chance_values["copper_ore"]):
+            if random.randint(0, 100) <= chance_values["copper_ore"]:
 
                 player.item["copper_ore"] = return_value("copper_ore")
 
