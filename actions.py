@@ -57,6 +57,8 @@ def call_to_action():
 
 def backpack():
 
+    is_empty = True
+
     player.load_data()
 
     clear_screen()
@@ -64,7 +66,11 @@ def backpack():
     print(f"\nMochila de {player.name}:\n")
 
     for item, quantity in player.item.items():
-        if quantity > 0: print(f"> {item_translate[item]}: {quantity}")
+        if quantity > 0:
+            print(f"> {item_translate[item]}: {quantity}")
+            is_empty = False
+
+    if is_empty: print(f"¡La mochila de {player.name} está vacía!")
 
     wait_user()
 
@@ -118,7 +124,7 @@ def mine():
 
                 save_changes("coal_ore", player.item["coal_ore"])
 
-                print(f"\n{player.name} consiguió {quantity} menas de carbon")
+                print(f"\n{player.name} consiguió {quantity} menas de carbón")
 
         elif random_ore == 3:
 
