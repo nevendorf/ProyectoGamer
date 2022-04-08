@@ -4,7 +4,7 @@ from actions import *
 
 if __name__ == "__main__":
 
-    clear_screen()    
+    clear_screen()
 
     username = input("Inserte su nombre: ")
 
@@ -13,10 +13,10 @@ if __name__ == "__main__":
     get_data()
 
     while True:
-        
+
         call_to_action()
 
-        if player.command == "mochila":
+        if player.command == "mochilas":
 
             backpack()
 
