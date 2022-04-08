@@ -4,13 +4,7 @@ from actions import *
 
 if __name__ == "__main__":
 
-    clear_screen()
-
-    username = input("Inserte su nombre: ")
-
-    player.name = username
-
-    get_data()
+    start_game()
 
     while True:
 
@@ -31,6 +25,10 @@ if __name__ == "__main__":
         elif player.command == "crimen":
 
             crime()
+
+        elif player.command == "reset":
+
+            reset_stats()
 
         elif player.command == "salir":
 
