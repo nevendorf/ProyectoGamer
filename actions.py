@@ -28,7 +28,7 @@ def reset_stats():
         clear_screen()
 
         print("\n¡Tu progreso fue eliminado!")
-        input()
+        wait_user()
 
 def start_game():
 
