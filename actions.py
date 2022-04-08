@@ -33,6 +33,18 @@ def get_data():
     player.item["salmon"] = return_value("salmon")
     player.item["shrimp"] = return_value("shrimp")
     player.item["shrimp_shiny"] = return_value("shrimp_shiny")
+    player.item["coal_ore"] = return_value("coal_ore")
+    player.item["copper_ore"] = return_value("copper_ore")
+
+def reset():
+
+    with open('player_data.json', 'r') as data_file:
+        player_data = json.load(data_file)
+        for item_name in player_data["items"]:
+            player_data["items"][item_name] = 0
+
+    with open('player_data.json', 'w') as data_file:
+        json.dump(player_data, data_file, indent=4)    
 
 def call_to_action():
 
@@ -40,11 +52,12 @@ def call_to_action():
 
     print("Inserte acción:\n")
 
-    print(" Minar")
-    print(" Crimen")
-    print(" Mochila")
-    print(" Pescar")
-    print(" Salir")
+    print("- Minar")
+    print("- Crimen")
+    print("- Mochila")
+    print("- Pescar")
+    print("- Reset")
+    print("- Salir")
 
     player.command = input("\n> ")
     player.command = player.command.lower()
@@ -84,16 +97,46 @@ def mine():
 
         print(f"\n{player.name} consiguió {quantity} piedras")
 
-        if(random.randint(0, 100) <= chance_values["iron_ore"]):
+        quantity = random.randint(1,3)
 
-            player.item["iron_ore"] = return_value("iron_ore")
+        if (quantity == 1):
 
-            quantity = random.randint(1, 3)
-            player.item["iron_ore"] += quantity
+            if(random.randint(0, 100) <= chance_values["iron_ore"]):
 
-            save_changes("iron_ore", player.item["iron_ore"])
+                player.item["iron_ore"] = return_value("iron_ore")
 
-            print(f"\n{player.name} consiguió {quantity} menas de hierro")
+                quantity = random.randint(1, 3)
+                player.item["iron_ore"] += quantity
+
+                save_changes("iron_ore", player.item["iron_ore"])
+
+                print(f"\n{player.name} consiguió {quantity} menas de hierro")
+
+        elif(quantity == 2):
+
+            if(random.randint(0, 100) <= chance_values["coal_ore"]):
+
+                player.item["coal_ore"] = return_value("coal_ore")
+
+                quantity = random.randint(10, 20)
+                player.item["coal_ore"] += quantity
+
+                save_changes("coal_ore", player.item["coal_ore"])
+
+                print(f"\n{player.name} consiguió {quantity} menas de carbon")
+
+        elif(quantity == 3):
+
+            if(random.randint(0, 100) <= chance_values["copper_ore"]):
+
+                player.item["copper_ore"] = return_value("copper_ore")
+
+                quantity = random.randint(4, 7)
+                player.item["copper_ore"] += quantity
+
+                save_changes("copper_ore", player.item["copper_ore"])
+
+                print(f"\n{player.name} consiguió {quantity} menas de cobre")
 
         last_use["mine"] = time.time()
 

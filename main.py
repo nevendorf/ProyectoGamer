@@ -32,6 +32,10 @@ if __name__ == "__main__":
 
             crime()
 
+        elif player.command == "reset":
+
+            reset()
+
         elif player.command == "salir":
 
             clear_screen()
