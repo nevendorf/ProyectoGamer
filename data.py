@@ -6,6 +6,8 @@ class Player:
         "money": 0,
         "stone": 0,
         "iron_ore": 0,
+        "coal_ore": 0,
+        "copper_ore": 0,
         "salmon": 0,
         "shrimp": 0,
         "shrimp_shiny": 0
