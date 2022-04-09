@@ -33,13 +33,8 @@ if __name__ == "__main__":
 
         elif player.command == "salir":
 
-            clear_screen()
-            print("\n¡Gracias por jugar!")
-            wait_user()
-            break
+            exit_game()
 
         else:
 
-            clear_screen()
-            print("¡Comando inválido!")
-            wait_user()
+            invalid_command()

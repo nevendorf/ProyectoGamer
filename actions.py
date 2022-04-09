@@ -238,9 +238,24 @@ def reset_stats():
         with open('cooldown.json', 'w') as cooldown_file:
             json.dump(cooldown, cooldown_file, indent=4)
 
+        with open('console.log', 'w') as log_file:
+            log_file.write("Iniciaste una nueva partida")
+
         clear_screen()
 
         print("\n¡Tu progreso fue eliminado!")
         wait_user()
 
         start_game()
+
+def exit_game():
+
+    clear_screen()
+    print("\n¡Gracias por jugar!")
+    wait_user()
+    clear_screen()
+    quit()
+
+def invalid_command():
+
+    save_message("¡Comando inválido! Escribe \"?\" para ver el menú de ayuda")
