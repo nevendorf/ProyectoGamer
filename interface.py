@@ -1,5 +1,6 @@
 from global_import import *
 from data import *
+from utils import *
 
 def start_game():
 
@@ -21,23 +22,41 @@ def start_game():
 
 def log_screen():
 
-    print("Partida de {player.name}\n")
+    clear_screen()
+
+    print(f"Partida de {player.name}\n")
 
     with open("console.log", 'r') as log_file:
-        log_messages = log_file.read()
+        log_messages = log_file.readlines()
 
-    if file_content == "NODATA":
-        print("|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n\n")
-
-    else:
-        
-        log_mesagges = log_file.readlines()
-
-        for iterator in 10 - len(log_messages):
-            print("|\n")
-
-        for message in log_messages:
+    for message in log_messages:
             print(f"| {message}")
 
-    player.command = input("\n>")
-    player.command = player.command.lowe()
+    player.command = input("\n> ")
+    player.command = player.command.lower()
+
+
+def save_message(message_to_save):
+    
+    with open('console.log', 'r') as log_file:
+
+        log_messages = log_file.readlines()
+        
+        if len(log_messages) > 10:
+            log_file.seek(0)
+            log_messages = log_file.readlines()[1:]
+        
+    with open('console.log', 'w') as log_file:
+        
+        if 10 - len(log_messages) > 0:
+
+            for iterator in range(1, 10 - len(log_messages))
+                log_file.write("|\n")
+
+        for message in log_messages:
+
+            message = message.strip() # Deletes empty lines (idk why the code makes empty lines, tbh)
+            log_file.write(str(message) + "\n")
+
+        log_file.write(str(message_to_save))
+

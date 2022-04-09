@@ -1,5 +1,6 @@
 from global_import import *
 from data import *
+from interface import *
 from utils import *
 
 def backpack():
@@ -23,8 +24,6 @@ def backpack():
 
 def mine():
 
-    clear_screen()
-
     with open('cooldown.json', 'r') as cooldown_file:
         cooldown = json.load(cooldown_file)
         last_use["mine"] = cooldown["actions"]["mine"]
@@ -38,7 +37,7 @@ def mine():
 
         save_changes("money", player.item["money"])
 
-        print(f"\n{player.name} consiguió {quantity} pesos")
+        save_message(f"{player.name} consiguió {quantity} pesos")
 
         player.item["stone"] = return_value("stone")
 
@@ -47,7 +46,7 @@ def mine():
 
         save_changes("stone", player.item["stone"])
 
-        print(f"\n{player.name} consiguió {quantity} piedras")
+        save_message(f"{player.name} consiguió {quantity} piedras")
 
         random_ore = random.randint(1,3)
 
@@ -62,7 +61,7 @@ def mine():
 
                 save_changes("iron_ore", player.item["iron_ore"])
 
-                print(f"\n{player.name} consiguió {quantity} menas de hierro")
+                save_message(f"{player.name} consiguió {quantity} menas de hierro")
 
         elif random_ore == 2:
 
@@ -75,7 +74,7 @@ def mine():
 
                 save_changes("coal_ore", player.item["coal_ore"])
 
-                print(f"\n{player.name} consiguió {quantity} menas de carbón")
+                save_message(f"{player.name} consiguió {quantity} menas de carbón")
 
         elif random_ore == 3:
 
@@ -88,7 +87,7 @@ def mine():
 
                 save_changes("copper_ore", player.item["copper_ore"])
 
-                print(f"\n{player.name} consiguió {quantity} menas de cobre")
+                save_message(f"{player.name} consiguió {quantity} menas de cobre")
 
         cooldown["actions"]["mine"] = time.time()
 
@@ -101,16 +100,12 @@ def mine():
 
         if remaining > 59:
             remaining = remaining // 60
-            print(f"\n¡No podés hacer esto ahora! Faltan {remaining} minutos")
+            save_message(f"¡No podés hacer esto ahora! Faltan {remaining} minutos")
 
         else:
-            print(f"\n¡No podés hacer esto ahora! Faltan {remaining} segundos")
-
-    wait_user()
+            save_message(f"¡No podés hacer esto ahora! Faltan {remaining} segundos")
 
 def fish():
-
-    clear_screen()
 
     with open('cooldown.json', 'r') as cooldown_file:
         cooldown = json.load(cooldown_file)
@@ -125,7 +120,7 @@ def fish():
 
         save_changes("salmon", player.item["salmon"])
 
-        print(f"\n{player.name} consiguió {quantity} salmón")
+        save_message(f"{player.name} consiguió {quantity} salmón")
 
         if (random.randint(0, 100) <= chance_values["shrimp"]):
 
@@ -136,7 +131,7 @@ def fish():
 
             save_changes("shrimp", player.item["shrimp"])
 
-            print(f"\n{player.name} consiguió {quantity} camarón")
+            save_message(f"{player.name} consiguió {quantity} camarón")
 
         aleatorio = random.randint(0,100)
 
@@ -148,7 +143,7 @@ def fish():
 
             save_changes("shrimp_shiny", player.item["shrimp_shiny"])
 
-            print(f"\n{player.name} consiguió un camarón shiny")
+            save_message(f"{player.name} consiguió un camarón shiny")
 
         cooldown["actions"]["fish"] = time.time()
         
@@ -161,16 +156,12 @@ def fish():
 
         if remaining > 59:
             remaining = remaining // 60
-            print(f"\n¡No podés hacer esto ahora! Restan {remaining} minutos")
+            save_message(f"¡No podés hacer esto ahora! Restan {remaining} minutos")
 
         else:
-            print(f"\n¡No podés hacer esto ahora! Restan {remaining} segundos")
-
-    wait_user()
+            save_message(f"¡No podés hacer esto ahora! Restan {remaining} segundos")
 
 def crime():
-
-    clear_screen()
 
     with open('cooldown.json', 'r') as cooldown_file:
         cooldown = json.load(cooldown_file)
@@ -184,13 +175,13 @@ def crime():
         player.item["money"] += quantity
 
         if quantity > 0:
-            print(f"\n{player.name} consiguió {quantity} pesos")
+            save_message(f"{player.name} consiguió {quantity} pesos")
 
         elif quantity < 0:
-            print(f"\nPerdiste {quantity+quantity*2} pesos")
+            save_message(f"Perdiste {quantity+quantity*2} pesos")
 
         else:
-            print("\nParece que no hubo suerte")
+            save_message("Parece que no hubo suerte")
 
         if player.item["money"] < 0:
             player.item["money"] = 0
@@ -208,12 +199,10 @@ def crime():
 
         if remaining > 59:
             remaining = remaining // 60
-            print(f"\n¡No podés hacer esto ahora! Restan {remaining} minutos")
+            save_message(f"¡No podés hacer esto ahora! Restan {remaining} minutos")
 
         else:
-            print(f"\n¡No podés hacer esto ahora! Restan {remaining} segundos")
-
-    wait_user()
+            save_message(f"¡No podés hacer esto ahora! Restan {remaining} segundos")
 
 def reset_stats():
 

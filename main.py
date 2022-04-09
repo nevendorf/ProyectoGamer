@@ -1,6 +1,7 @@
 from global_import import *
 from data import *
 from actions import *
+from interface import *
 
 if __name__ == "__main__":
 
@@ -8,7 +9,7 @@ if __name__ == "__main__":
 
     while True:
 
-        call_to_action()
+        log_screen()
 
         if player.command == "mochila":
 

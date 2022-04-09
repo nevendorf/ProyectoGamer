@@ -2,7 +2,7 @@ from global_import import *
 from data import *
 
 def clear_screen():
-    os.system("cls")
+    os.system("clear")
 
 def wait_user():
     input("\nPresioná ENTER para continuar...")
@@ -24,3 +24,4 @@ def return_value(item_name):
     current_value = player_data["items"][item_name]
 
     return int(current_value)
+
