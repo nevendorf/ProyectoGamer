@@ -25,6 +25,15 @@ def reset_stats():
         with open('player_data.json', 'w') as data_file:
             json.dump(player_stats, data_file, indent=4)
 
+        with open('cooldown.json', 'r') as cooldown_file:
+            cooldown = json.load(cooldown_file)
+
+        for action in cooldown["actions"]:
+            cooldown["actions"][action] = 0 
+
+        with open('cooldown.json', 'w') as cooldown_file:
+            json.dump(cooldown, cooldown_file, indent=4)
+
         clear_screen()
 
         print("\n¡Tu progreso fue eliminado!")
@@ -77,6 +86,10 @@ def backpack():
 def mine():
 
     clear_screen()
+
+    with open('cooldown.json', 'r') as cooldown_file:
+        cooldown = json.load(cooldown_file)
+        last_use["mine"] = cooldown["actions"]["mine"]
 
     if last_use["mine"] == None or time.time() - last_use["mine"] >= action_cooldown["mine"]:
 
@@ -139,7 +152,10 @@ def mine():
 
                 print(f"\n{player.name} consiguió {quantity} menas de cobre")
 
-        last_use["mine"] = time.time()
+        cooldown["actions"]["mine"] = time.time()
+
+        with open('cooldown.json', 'w') as cooldown_file:
+            json.dump(cooldown, cooldown_file, indent = 4)
 
     else:
 
@@ -157,6 +173,10 @@ def mine():
 def fish():
 
     clear_screen()
+
+    with open('cooldown.json', 'r') as cooldown_file:
+        cooldown = json.load(cooldown_file)
+        last_use["fish"] = cooldown["actions"]["fish"]
 
     if last_use["fish"] == None or time.time() - last_use["fish"] >= action_cooldown["fish"]:
 
@@ -192,7 +212,10 @@ def fish():
 
             print(f"\n{player.name} consiguió un camarón shiny")
 
-        last_use["fish"] = time.time()
+        cooldown["actions"]["fish"] = time.time()
+        
+        with open('cooldown.json', 'w') as cooldown_file:
+            json.dump(cooldown, cooldown_file, indent = 4)
 
     else:
 
@@ -210,6 +233,10 @@ def fish():
 def crime():
 
     clear_screen()
+
+    with open('cooldown.json', 'r') as cooldown_file:
+        cooldown = json.load(cooldown_file)
+        last_use["crime"] = cooldown["actions"]["crime"]
 
     if last_use["crime"] == None or time.time() - last_use["crime"] >= action_cooldown["crime"]:
 
@@ -232,7 +259,10 @@ def crime():
 
         save_changes("money", player.item["money"])
 
-        last_use["crime"] = time.time()
+        cooldown["actions"]["crime"] = time.time()
+
+        with open('cooldown.json', 'w') as cooldown_file:
+            json.dump(cooldown, cooldown_file, indent = 4)
 
     else:
 
