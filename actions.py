@@ -10,6 +10,9 @@ def help_menu():
     help_text = """
 (+) Lista de comandos
 
+mochila:
+Mirá los ítems que tenés en tu inventario
+
 minar:
 Obtené recursos minerales y dinero
 
@@ -143,7 +146,7 @@ def fish():
         player.item["salmon"] = return_value("salmon")
 
         quantity = random.randint(1,5)
-        player.item["salmon"] += 1
+        player.item["salmon"] += quantity
 
         save_changes("salmon", player.item["salmon"])
 
@@ -154,19 +157,17 @@ def fish():
             player.item["shrimp"] = return_value("shrimp")
 
             quantity = random.randint(1,3)
-            player.item["shrimp"] += 1
+            player.item["shrimp"] += quantity
 
             save_changes("shrimp", player.item["shrimp"])
 
             save_message(f"{player.name} consiguió {quantity} camarón")
 
-        aleatorio = random.randint(0,100)
-
-        if (aleatorio <= chance_values["shrimp_shiny"]):
+        if (random.randint(0,100) <= chance_values["shrimp_shiny"]):
 
             player.item["shrimp_shiny"] = return_value("shrimp_shiny")
 
-            player.item["shrimp_shiny"] += 1
+            player.item["shrimp_shiny"] += quantity
 
             save_changes("shrimp_shiny", player.item["shrimp_shiny"])
 
@@ -183,10 +184,10 @@ def fish():
 
         if remaining > 59:
             remaining = remaining // 60
-            save_message(f"¡No podés hacer esto ahora! Restan {remaining} minutos")
+            save_message(f"¡No podés hacer esto ahora! Faltan {remaining} minutos")
 
         else:
-            save_message(f"¡No podés hacer esto ahora! Restan {remaining} segundos")
+            save_message(f"¡No podés hacer esto ahora! Faltan {remaining} segundos")
 
 def crime():
 
@@ -226,10 +227,10 @@ def crime():
 
         if remaining > 59:
             remaining = remaining // 60
-            save_message(f"¡No podés hacer esto ahora! Restan {remaining} minutos")
+            save_message(f"¡No podés hacer esto ahora! Faltan {remaining} minutos")
 
         else:
-            save_message(f"¡No podés hacer esto ahora! Restan {remaining} segundos")
+            save_message(f"¡No podés hacer esto ahora! Faltan {remaining} segundos")
 
 def reset_stats():
 
