@@ -8,7 +8,7 @@ def start_game():
 
     try:
 
-        input("Presioná ENTER para jugar o CTRL+C para salir\n\n")
+        input("\nPresioná ENTER para jugar o CTRL+C para salir\n\n")
 
     except KeyboardInterrupt:
 
@@ -21,7 +21,7 @@ def start_game():
 
     if player.name == "": 
 
-        username = input("Inserte su nombre: ")
+        username = input("\nInsertá tu nombre: ")
 
         with open('player_data.json', 'r') as data_file:
             player_data = json.load(data_file)
