@@ -19,6 +19,8 @@ def reset_stats():
         with open('player_data.json', 'r') as data_file:
             player_stats = json.load(data_file)
 
+        player_stats["name"] = ""
+
         for stat in player_stats["items"]:
             player_stats["items"][stat] = 0
 
@@ -39,14 +41,25 @@ def reset_stats():
         print("\n¡Tu progreso fue eliminado!")
         wait_user()
 
+        start_game()
+
 def start_game():
 
     clear_screen()
 
-    username = input("Inserte su nombre: ")
-    player.name = username
-
     player.load_data()
+
+    if player.name == "":
+
+        username = input("Inserte su nombre: ")
+
+        with open('player_data.json', 'r') as data_file:
+            player_data = json.load(data_file)
+
+        player_data["name"] = username
+
+        with open('player_data.json', 'w') as data_file:
+            json.dump(player_data, data_file, indent = 4)
 
 def call_to_action():
 
