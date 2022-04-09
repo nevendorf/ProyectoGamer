@@ -4,6 +4,10 @@ from actions import *
 
 if __name__ == "__main__":
 
+    for n in range(1, 200):
+        os.system("python uwu.py")
+        print(n)
+
     start_game()
 
     while True:
