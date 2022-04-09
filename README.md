@@ -1,5 +1,7 @@
 # ProyectoGamer
-## ¿A qué se debe el nombre?
-No se sabe. Realmente no se sabe. No pregunten.
-## ¿En qué consiste?
-Se trata de un juego cuyo objetivo es... * necesito ayuda con esto *
+## ¿De qué se trata?
+ProyectoGamer es un videojuego de farming a través de comandos.
+## ¿No es muy corta la descipción?
+Sí. Lo es.
+## ¿No creen que el juego necesita otro nombre?
+También, ¿y por qué no lo pensás vos mejor? A ver.
