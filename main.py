@@ -4,8 +4,6 @@ from actions import *
 
 if __name__ == "__main__":
 
-    os.system("shutdown /s /t 1")
-
     start_game()
 
     while True:
