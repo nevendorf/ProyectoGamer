@@ -2,7 +2,7 @@ from global_import import *
 from data import *
 
 def clear_screen():
-    os.system("clear")
+    os.system("cls")
 
 def wait_user():
     input("\nPresioná ENTER para continuar...")

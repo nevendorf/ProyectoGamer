@@ -11,7 +11,10 @@ if __name__ == "__main__":
 
         log_screen()
 
-        if player.command == "mochila":
+        if player.command == "?":
+            help_menu()
+
+        elif player.command == "mochila":
 
             backpack()
 

@@ -3,6 +3,33 @@ from data import *
 from interface import *
 from utils import *
 
+def help_menu():
+
+    clear_screen()
+
+    help_text = """
+(+) Lista de comandos
+
+minar:
+Obtené recursos minerales y dinero
+
+pescar:
+Obtené peces y demás especies acuáticas
+
+crimen:
+Obtené dinero. Aunque podés tener mala suerte y perderlo
+
+reset:
+Reiniciá todo tu progreso en el juego para comenzar desde cero
+
+salir:
+Salí del juego
+        """
+
+    print(help_text)
+
+    wait_user()
+
 def backpack():
 
     is_empty = True
@@ -178,7 +205,7 @@ def crime():
             save_message(f"{player.name} consiguió {quantity} pesos")
 
         elif quantity < 0:
-            save_message(f"Perdiste {quantity+quantity*2} pesos")
+            save_message(f"Perdiste {abs(quantity)} pesos")
 
         else:
             save_message("Parece que no hubo suerte")
