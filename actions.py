@@ -2,81 +2,6 @@ from global_import import *
 from data import *
 from utils import *
 
-def start_game():
-
-    clear_screen()
-
-    player.load_data()
-
-    if player.name == "":
-
-        username = input("Inserte su nombre: ")
-
-        with open('player_data.json', 'r') as data_file:
-            player_data = json.load(data_file)
-
-        player_data["name"] = username
-
-        with open('player_data.json', 'w') as data_file:
-            json.dump(player_data, data_file, indent = 4)
-
-def call_to_action():
-
-    clear_screen()
-
-    print("Inserte acción:\n")
-
-    print("- Minar")
-    print("- Crimen")
-    print("- Mochila")
-    print("- Pescar")
-    print("- Reset")
-    print("- Salir")
-
-    player.command = input("\n> ")
-    player.command = player.command.lower()
-
-def reset_stats():
-
-    user_input = None
-
-    while user_input == None or (user_input != "aceptar" and user_input != "cancelar"):
-
-        clear_screen()
-
-        print("\nTodo tu progreso está a punto de ser eliminado.")
-        print("\n- Aceptar\n- Cancelar")
-        user_input = input("\n> ").lower()
-
-    if user_input == "aceptar":
-
-        with open('player_data.json', 'r') as data_file:
-            player_stats = json.load(data_file)
-
-        player_stats["name"] = ""
-
-        for stat in player_stats["items"]:
-            player_stats["items"][stat] = 0
-
-        with open('player_data.json', 'w') as data_file:
-            json.dump(player_stats, data_file, indent=4)
-
-        with open('cooldown.json', 'r') as cooldown_file:
-            cooldown = json.load(cooldown_file)
-
-        for action in cooldown["actions"]:
-            cooldown["actions"][action] = 0 
-
-        with open('cooldown.json', 'w') as cooldown_file:
-            json.dump(cooldown, cooldown_file, indent=4)
-
-        clear_screen()
-
-        print("\n¡Tu progreso fue eliminado!")
-        wait_user()
-
-        start_game()
-
 def backpack():
 
     is_empty = True
@@ -289,3 +214,44 @@ def crime():
             print(f"\n¡No podés hacer esto ahora! Restan {remaining} segundos")
 
     wait_user()
+
+def reset_stats():
+
+    user_input = None
+
+    while user_input == None or (user_input != "aceptar" and user_input != "cancelar"):
+
+        clear_screen()
+
+        print("\nTodo tu progreso está a punto de ser eliminado.")
+        print("\n- Aceptar\n- Cancelar")
+        user_input = input("\n> ").lower()
+
+    if user_input == "aceptar":
+
+        with open('player_data.json', 'r') as data_file:
+            player_stats = json.load(data_file)
+
+        player_stats["name"] = ""
+
+        for stat in player_stats["items"]:
+            player_stats["items"][stat] = 0
+
+        with open('player_data.json', 'w') as data_file:
+            json.dump(player_stats, data_file, indent=4)
+
+        with open('cooldown.json', 'r') as cooldown_file:
+            cooldown = json.load(cooldown_file)
+
+        for action in cooldown["actions"]:
+            cooldown["actions"][action] = 0 
+
+        with open('cooldown.json', 'w') as cooldown_file:
+            json.dump(cooldown, cooldown_file, indent=4)
+
+        clear_screen()
+
+        print("\n¡Tu progreso fue eliminado!")
+        wait_user()
+
+        start_game()
