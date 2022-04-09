@@ -27,6 +27,8 @@ class Player():
         with open('player_data.json', 'r') as data_file:
             player_stats = json.load(data_file)
 
+        self.name = player_stats["name"]
+
         for stat, value in player_stats["items"].items():
             self.item[stat] = player_stats["items"][stat]
 
