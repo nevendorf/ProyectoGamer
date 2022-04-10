@@ -282,7 +282,7 @@ def exit_game():
     print("\n¡Gracias por jugar!")
     wait_user()
     clear_screen()
-    quit()
+    sys.exit()
 
 def invalid_command():
 
