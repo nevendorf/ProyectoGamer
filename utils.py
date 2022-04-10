@@ -24,3 +24,4 @@ def return_value(item_name):
     current_value = player_data["items"][item_name]
 
     return int(current_value)
+

@@ -1,6 +1,7 @@
 from global_import import *
 from data import *
 from actions import *
+from interface import *
 
 if __name__ == "__main__":
 
@@ -8,9 +9,12 @@ if __name__ == "__main__":
 
     while True:
 
-        call_to_action()
+        log_screen()
 
-        if player.command == "mochila":
+        if player.command == "?":
+            help_menu()
+
+        elif player.command == "mochila":
 
             backpack()
 
@@ -32,13 +36,8 @@ if __name__ == "__main__":
 
         elif player.command == "salir":
 
-            clear_screen()
-            print("\n¡Gracias por jugar!")
-            wait_user()
-            break
+            exit_game()
 
         else:
 
-            clear_screen()
-            print("¡Comando inválido!")
-            wait_user()
+            invalid_command()
