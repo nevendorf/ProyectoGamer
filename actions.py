@@ -1,10 +1,7 @@
 from global_import import *
 from data import *
-<<<<<<< HEAD
-=======
 from interface import *
 from utils import *
->>>>>>> copy
 
 def help_menu():
 
