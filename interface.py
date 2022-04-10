@@ -13,7 +13,7 @@ def start_game():
     except KeyboardInterrupt:
 
         clear_screen()
-        quit()
+        sys.exit()
 
     clear_screen()
 
